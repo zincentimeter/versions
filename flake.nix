@@ -21,9 +21,7 @@
     in
     {
       # https://git.sr.ht/~fubuki/stratosphere/tree/roze/item/flake.nix#L27
-      nixosModules = nixpkgs.lib.mapAttrs (
-        (name: value: import value) (import ./modules)
-      );
+      nixosModules = nixpkgs.lib.mapAttrs (_: value: import value) (import ./modules);
       formatter = forAllSystems (system:
         nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
       devShells = forAllSystems (system:
