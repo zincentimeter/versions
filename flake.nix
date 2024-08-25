@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = { nixpkgs }:
+  outputs = { self, nixpkgs }:
   # https://git.sr.ht/~fubuki/stratosphere/tree/roze/item/flake.nix#L9
   let
     systems = [
