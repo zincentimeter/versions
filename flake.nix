@@ -34,7 +34,7 @@
           default = pkgs.mkShell {
             buildInputs = [ pkgs.nix-update pkgs.nix-prefetch-github ];
           };
-        }
-      );
-    };
+        } # (system:
+      ); # forAllSystems
+    }; # outputs
 }
