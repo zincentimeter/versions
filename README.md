@@ -55,7 +55,7 @@ Basically, `versions` is planned to allow you to write such configuration ...
 {
   environment.systemPackages = with pkgs; [
     wget
-    lib.version "0.9.0" neovim
+    (lib.version "0.9.0" neovim)
   ]
   # ...
   programs.git.package = lib.version "2.44.0" git
