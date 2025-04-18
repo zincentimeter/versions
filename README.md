@@ -1,3 +1,5 @@
+(Not Implemented Yet)
+
 # `versions`: Specify software versions in Nix, elegantly and efficiently
 
 `versions` is a Nix Flake project **planned** to provide simple and
@@ -39,6 +41,22 @@ functionalities, mainly fall into two categories described below,
    Given so many utilities allowing us to load an older nixpkgs, a manual
    copy-and-paste operation must be done by yourself. Your Nix files will be left
    with many meaningless nixpkgs input with its clueless commit number.
+
+## Roadmap
+
+- [ ] Differentially analyze `nixpkgs` repository (master branch). In this step, `versions` iterates `nixpkgs`' commit since the [first one](https://github.com/NixOS/nixpkgs/commit/2766a4b44ee6eafae03a042801270c7f6b8ed32a) (question: or trace back from the latest one?), for each commit,
+    - query what the commit changes, (the patch and files affected)
+    - if the commit changes a package's version, check it with `nix` and store it in nix format (e.g.:
+        ```nix
+        {
+            pname = "neovim";
+            version = "0.9.0";
+            nixpkgs-rev-last = "<hash>";
+            nixpgks-rev-first = "<hash>";
+        }
+        ```
+        - append it in `<repo>/pkgs/ne/neovim.nix`;
+        - updates `<repo>`.
 
 ## Targets
 
